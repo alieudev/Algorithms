@@ -1,0 +1,17 @@
+public int sumHeights2(int[] heights, int start, int end) {
+  int[] newHeights = Arrays.copyOfRange(heights, start, end+1); 
+  
+  int count = 0; 
+  
+  for(int i = 1; i < newHeights.length; i++){
+    int change = newHeights[i] - newHeights[i-1]; 
+    if( change > 0) {
+      count += change * 2;
+    } else {
+      count += Math.abs(change);
+    }
+  }
+  
+  return count;
+}
+
